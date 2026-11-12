@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amir Rajabpoor Alisepahi, Ph.D.</title>
+<meta name="description" content="Amir Rajabpoor Alisepahi, Ph.D., mechanical engineer and Lecturer at the University of Vermont. Controlling waves by design: phononic crystals, mechanical metamaterials and topological lattices, from dynamic modeling to experimental validation.">
+<meta property="og:title" content="Amir Rajabpoor Alisepahi, Ph.D.">
+<meta property="og:description" content="Controlling waves by design, from dynamic modeling to experimental validation.">
+<meta name="theme-color" content="#17233F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2317233F'/%3E%3Cpath d='M5 18 L11 13 L16 19 L21 13 L27 18' stroke='%23E9EEF6' stroke-width='1.3' fill='none'/%3E%3Cpath d='M11 13 L16 19' stroke='%23E9EEF6' stroke-width='3'/%3E%3Ccircle cx='5' cy='18' r='2.4' fill='%234FD1C5'/%3E%3Ccircle cx='11' cy='13' r='2.4' fill='%234FD1C5'/%3E%3Ccircle cx='16' cy='19' r='2.6' fill='%23D98E2B'/%3E%3Ccircle cx='21' cy='13' r='2.4' fill='%234FD1C5'/%3E%3Ccircle cx='27' cy='18' r='2.4' fill='%234FD1C5'/%3E%3C/svg%3E">
+<script>document.documentElement.className+=" js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Schibsted+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#17233F; --navy-2:#20305A; --navy-3:#2B3D68;
+  --amber:#D98E2B; --amber-soft:#F3D9B1;
+  --teal:#1C7293; --glow:#4FD1C5;
+  --text:#1B2436; --slate:#56657F; --ice:#F2F5FA; --mist:#DCE4F0; --rule:#E1E7F0;
+  --on-navy:#E9EEF6; --on-navy-2:#AEBBD1;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:#fff;color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;font-kerning:normal}
+img,video,canvas{display:block;max-width:100%}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:.2em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:3px}
+p{margin:0 0 1em}
+h1,h2,h3,h4{font-family:var(--display);font-optical-sizing:auto;color:var(--navy);margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.prose{max-width:66ch}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--amber);color:var(--navy);padding:8px 12px;z-index:30;font-weight:600}
+.skip:focus{left:8px}
+
+/* Scroll progress */
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--amber),var(--glow));z-index:40;pointer-events:none}
+
+/* Top bar */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(23,35,63,.93);-webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);border-bottom:1px solid rgba(233,238,246,.10)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:62px}
+.brand{font-family:var(--display);font-size:19px;font-weight:600;color:#fff;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--amber)}
+.topbar nav{display:flex;gap:24px;font-size:15px}
+.topbar nav a{color:var(--on-navy-2);text-decoration:none;padding:8px 0;white-space:nowrap}
+.topbar nav a:hover{color:#fff}
+
+/* Hero */
+.hero{background:radial-gradient(1200px 700px at 78% 30%,#24396B 0%,rgba(23,35,63,0) 60%),radial-gradient(900px 600px at 0% 100%,#1D2C52 0%,rgba(23,35,63,0) 60%),var(--navy);color:var(--on-navy);padding:80px 0 0;position:relative;overflow:hidden;min-height:calc(100svh - 62px);display:flex;flex-direction:column;justify-content:center}
+#field{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center}
+.glow-ring{position:relative;border-radius:18px;padding:2px}
+.glow-ring::before{content:"";position:absolute;inset:0;border-radius:18px;padding:2px;background:conic-gradient(from var(--ang),var(--amber),rgba(79,209,197,.9),rgba(79,209,197,0) 40%,rgba(217,142,43,0) 60%,var(--amber));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 8s linear infinite}
+.glow-ring::after{content:"";position:absolute;inset:-30px;border-radius:40px;background:radial-gradient(closest-side,rgba(79,209,197,.22),rgba(217,142,43,.10),transparent);filter:blur(20px);z-index:-1}
+@property --ang{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--ang:360deg}}
+.wave-edge{position:absolute;left:0;bottom:-1px;width:200%;height:70px;display:block;animation:drift 22s linear infinite;pointer-events:none}
+@keyframes drift{to{transform:translateX(-50%)}}
+.scroll-cue{position:absolute;left:50%;bottom:84px;transform:translateX(-50%);font-size:12px;letter-spacing:.08em;color:var(--on-navy-2);text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-cue span{display:block;width:1px;height:28px;background:linear-gradient(var(--amber),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+@media (prefers-reduced-motion:reduce){.glow-ring::before,.wave-edge,.scroll-cue span{animation:none}}
+.hero h1{color:#fff;font-size:clamp(44px,6.2vw,78px);line-height:1.02;font-weight:500;letter-spacing:-.015em;margin:0 0 22px}
+.hero-statement{font-family:var(--display);font-size:clamp(22px,2.4vw,30px);line-height:1.3;color:var(--on-navy);margin:0 0 22px;max-width:24em}
+.hero-statement em{font-style:italic;color:var(--amber)}
+.hero-role{font-size:16px;color:var(--on-navy-2);margin:0 0 30px;max-width:44ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:0}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:999px;font-family:var(--sans);font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid transparent;cursor:pointer}
+.btn{transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-amber{background:var(--amber);color:var(--navy);box-shadow:0 10px 30px -12px rgba(217,142,43,.75)}
+.btn-amber:hover{background:#E8A24A;box-shadow:0 14px 34px -10px rgba(217,142,43,.9)}
+.btn-ghost{border-color:rgba(233,238,246,.45);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn-line{border-color:var(--navy);color:var(--navy)}
+.btn-line:hover{background:var(--ice)}
+.hero-media{margin:0}
+.plate{position:relative;background:#fff;border-radius:14px;overflow:hidden}
+.hero .plate{box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.plate video,.plate img{width:100%;height:auto}
+.hero-media figcaption{font-size:14px;line-height:1.55;color:var(--on-navy-2);margin-top:12px;max-width:52ch}
+.recent{position:relative;list-style:none;margin:72px 0 0;padding:26px 0 120px;border-top:1px solid rgba(233,238,246,.14);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.recent li{position:relative;font-size:15px;line-height:1.5;color:var(--on-navy);padding-top:6px}
+.recent li::before{content:"";position:absolute;left:0;top:-31px;width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(217,142,43,.18),0 0 16px rgba(217,142,43,.7)}
+.recent time{display:block;font-weight:600;color:var(--amber);margin-bottom:4px;font-size:14px}
+
+/* Reveal on scroll */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+
+/* Lightbox */
+.zoomable{cursor:zoom-in}
+dialog.lightbox{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh;color:#fff}
+dialog.lightbox::backdrop{background:rgba(10,16,32,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog.lightbox img{max-width:100%;max-height:80vh;width:auto;height:auto;margin:0 auto;border-radius:12px;background:#fff}
+dialog.lightbox p{font-size:14px;line-height:1.55;color:var(--on-navy);margin:12px auto 0;max-width:90ch;text-align:center}
+dialog.lightbox button{position:fixed;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(23,35,63,.6);color:#fff;font-size:22px;cursor:pointer}
+
+/* Motion toggle on plates */
+.motion{position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(23,35,63,.78);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0}
+.motion:hover{background:var(--navy)}
+.motion svg{width:14px;height:14px}
+
+/* Bands */
+.band{padding:104px 0}
+.band-ice{background:var(--ice)}
+.band-navy{background:var(--navy);color:var(--on-navy)}
+.band-navy h2,.band-navy h3{color:#fff}
+.band-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:end;margin-bottom:48px}
+.band-head h2{font-size:clamp(36px,4.6vw,56px);line-height:1.05;font-weight:500;letter-spacing:-.01em}
+.band-head p{margin:0;color:var(--slate);font-size:18px;max-width:58ch}
+.band-navy .band-head p{color:var(--on-navy-2)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:64px;align-items:start}
+.about-photo{margin:0}
+.about-photo img{width:100%;height:auto;border-radius:12px;background:#fff;border:1px solid var(--rule)}
+.facts{list-style:none;margin:22px 0 0;padding:0;font-size:15px;line-height:1.45}
+.facts li{padding:10px 0;border-top:1px solid var(--rule)}
+.facts li:last-child{border-bottom:1px solid var(--rule)}
+.facts b{display:block;font-weight:600;color:var(--navy)}
+.lede{font-family:var(--display);font-size:clamp(22px,2.3vw,27px);line-height:1.4;color:var(--navy);margin:0 0 24px;max-width:34em}
+
+/* Research */
+.question{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center}
+.question .big{font-family:var(--display);font-size:clamp(28px,3.4vw,42px);line-height:1.18;color:var(--navy);margin:0 0 24px;letter-spacing:-.005em}
+.theme{margin-top:120px}
+.theme-head{display:grid;grid-template-columns:72px minmax(0,1fr);gap:8px;align-items:baseline;margin-bottom:22px}
+.num{font-family:var(--display);font-size:72px;line-height:.9;font-weight:600;background:linear-gradient(140deg,var(--amber) 20%,var(--teal) 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.theme h3{font-size:clamp(28px,3vw,38px);line-height:1.12;font-weight:500;letter-spacing:-.005em}
+.theme-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px;align-items:start}
+.theme-body{padding-left:80px}
+.role{margin:0;padding:22px 24px;background:var(--ice);border-radius:12px;font-size:15px;line-height:1.55}
+.role h4{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--slate);margin:0 0 8px;letter-spacing:.01em}
+.role ul{margin:0 0 14px;padding-left:18px}
+.role li{margin-bottom:6px}
+.role .refs{border-top:1px solid var(--mist);padding-top:12px;margin:0}
+.role .refs p{margin:0 0 6px}
+.fig{margin:36px 0 0}
+.fig figcaption{font-size:14px;line-height:1.55;color:var(--slate);margin-top:12px;max-width:96ch}
+.fig-no{font-weight:600;color:var(--navy)}
+.fig-ctl{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.seg{display:inline-flex;background:var(--ice);border-radius:999px;padding:4px;gap:2px}
+.seg button{font:600 14px/1.2 var(--sans);color:var(--slate);background:transparent;border:0;border-radius:999px;padding:9px 16px;min-height:38px;cursor:pointer}
+.seg button:hover{color:var(--navy)}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.wide-plate{border:1px solid var(--rule)}
+.wide-plate video{aspect-ratio:1200/498}
+.panels{display:grid;gap:14px}
+.panels-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.panel{position:relative;margin:0;background:#fff;border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:14px;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.panel:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(23,35,63,.5)}
+.panel img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.panel:hover img{transform:scale(1.025)}
+.plate{transition:box-shadow .35s ease}
+.band:not(.band-navy) .plate:hover{box-shadow:0 26px 50px -30px rgba(23,35,63,.55)}
+.band-navy{position:relative;overflow:hidden}
+.band-navy::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 85% 0%,#24396B,rgba(23,35,63,0) 60%);pointer-events:none}
+.band-navy > .wrap{position:relative}
+.edge-top{position:absolute;left:0;top:-1px;width:200%;height:60px;animation:drift 26s linear infinite;pointer-events:none;z-index:1}
+.band-navy.has-edge{padding-top:150px}
+@media (prefers-reduced-motion:reduce){.edge-top{animation:none}}
+.panel img{width:100%;height:100%;object-fit:contain}
+.panel-tall{height:300px}
+.panel-mid{height:260px}
+.panel.photo{padding:0}
+.panel.photo img{object-fit:cover}
+.tag{position:absolute;left:10px;top:8px;font:700 14px var(--sans);color:var(--navy);background:rgba(255,255,255,.88);border-radius:6px;padding:1px 7px}
+.ladder-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:14px;margin-top:14px}
+.side-note{margin-top:28px;padding-left:16px;border-left:3px solid var(--amber);font-size:16px;color:var(--text);max-width:62ch}
+.side-note b{color:var(--navy)}
+.minor{margin-top:96px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:56px}
+.minor h3{font-size:30px;font-weight:500;margin-bottom:12px}
+.status{display:inline-block;font-size:13px;font-weight:600;color:var(--teal);background:#E3F1F6;border-radius:999px;padding:3px 10px;margin-bottom:12px}
+
+/* Try it (dark lattice) */
+.lab{margin:0;background:var(--navy-2);border:1px solid rgba(233,238,246,.12);border-radius:16px;padding:20px 20px 16px}
+.lab-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.lab .seg{background:rgba(255,255,255,.07)}
+.lab .seg button{color:var(--on-navy-2)}
+.lab .seg button:hover{color:#fff}
+.lab .seg button[aria-pressed="true"]{background:var(--amber);color:var(--navy)}
+.textbtn{font:600 14px var(--sans);background:none;border:0;color:var(--on-navy-2);text-decoration:underline;text-underline-offset:.22em;cursor:pointer;padding:8px 4px;min-height:40px}
+.textbtn:hover{color:#fff}
+#lattice{width:100%;height:clamp(200px,25vw,300px);cursor:pointer;touch-action:manipulation}
+.ruler{position:relative;height:52px;margin:6px 16px 0;font-size:12px;color:var(--on-navy-2)}
+.ruler .track,.ruler .bandseg,.ruler .gapseg{position:absolute;top:22px;height:6px;border-radius:3px}
+.ruler .track{left:0;right:0;background:rgba(233,238,246,.12)}
+.ruler .bandseg{background:var(--glow)}
+.ruler .gapseg{background:repeating-linear-gradient(135deg,rgba(217,142,43,.85) 0 2px,transparent 2px 5px)}
+.ruler .lbl{position:absolute;top:32px;transform:translateX(-50%);white-space:nowrap}
+.ruler .marker{position:absolute;top:2px;height:32px;border-left:2px solid #fff;transition:left .35s ease}
+.ruler .marker span{position:absolute;left:6px;top:-3px;white-space:nowrap;font-weight:700;color:#fff}
+.ruler .marker[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){.ruler .marker{transition:none}}
+.lab-status{font-size:15px;line-height:1.5;color:#fff;margin:10px 0 8px;min-height:3em;max-width:80ch}
+.lab figcaption{font-size:14px;line-height:1.55;color:var(--on-navy-2);border-top:1px solid rgba(233,238,246,.12);padding-top:12px;max-width:90ch}
+
+/* Multiphysics */
+.trio{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:56px;align-items:start}
+.stack{display:flex;flex-direction:column;gap:12px}
+.stack article{padding-top:20px;border-top:1px solid var(--rule)}
+.stack article:first-child{border-top:0;padding-top:0}
+.trio .stack h3{margin-top:0}
+.trio article{display:flex;flex-direction:column}
+.trio .plate{border:1px solid var(--rule);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#fff}
+.trio .plate video{width:100%;height:100%;object-fit:contain}
+.trio .plate.dark{background:#0d1428}
+.trio figure{margin:0}
+.trio figcaption{font-size:13px;color:var(--slate);margin-top:8px;line-height:1.5}
+.trio h3{font-size:24px;font-weight:500;margin:20px 0 8px}
+.trio p{font-size:16px;margin:0 0 8px}
+.meta{font-size:13px;color:var(--slate);margin-top:auto}
+
+/* Earlier */
+.earlier{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:56px;align-items:start;margin-top:96px}
+.earlier h3{font-size:30px;font-weight:500;margin-bottom:12px}
+.earlier h4{font-size:22px;font-weight:500;margin:28px 0 8px}
+
+/* Teaching */
+.course{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px;align-items:center}
+.course h3{font-size:clamp(28px,3vw,38px);font-weight:500;line-height:1.15;margin:0 0 10px}
+.course .when{font-size:15px;color:var(--slate);margin:0 0 18px}
+.topics{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.topics li{font-size:14px;background:var(--ice);border-radius:999px;padding:5px 12px;color:var(--navy)}
+.course .plate{border:1px solid var(--rule)}
+.band-ice .topics li{background:#fff;border:1px solid var(--mist)}
+
+/* Dated lists */
+.dated{list-style:none;margin:0;padding:0}
+.dated li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:28px;padding:20px 0;border-top:1px solid var(--rule)}
+.dated li:last-child{border-bottom:1px solid var(--rule)}
+.dated .t{font-size:15px;color:var(--slate);font-variant-numeric:tabular-nums;padding-top:2px}
+.dated p{margin:0}
+.dated .title{font-family:var(--display);font-size:20px;line-height:1.35;color:var(--navy)}
+.dated .meta2{font-size:14px;line-height:1.55;color:var(--slate);margin-top:5px}
+.me{font-weight:700;color:var(--navy)}
+.flag{display:inline-block;font:600 12px/1 var(--sans);color:var(--navy);background:var(--amber-soft);border-radius:999px;padding:4px 9px;margin-left:8px;vertical-align:3px}
+.subhead{font-size:26px;font-weight:500;margin:56px 0 16px}
+.subhead:first-of-type{margin-top:0}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;margin-top:72px}
+.plain{list-style:none;margin:0;padding:0}
+.plain li{padding:12px 0;border-top:1px solid var(--rule);font-size:16px}
+.plain li:last-child{border-bottom:1px solid var(--rule)}
+.plain b{color:var(--navy)}
+
+/* Contact */
+.contact h2{font-size:clamp(40px,5.4vw,64px);font-weight:500;line-height:1.04;margin:0 0 20px}
+.contact .email{font-family:var(--display);font-size:clamp(26px,3.4vw,40px);margin:28px 0 8px}
+.contact .email a{color:#fff;text-decoration-color:var(--amber)}
+.contact .office{color:var(--on-navy-2);margin:0 0 30px}
+.contact .links{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0}
+.contact p.prose{color:var(--on-navy);font-size:18px}
+footer{background:var(--navy);color:var(--on-navy-2);font-size:14px;line-height:1.55;padding:0 0 44px}
+footer .wrap{border-top:1px solid rgba(233,238,246,.14);padding-top:24px}
+footer p{margin:0;max-width:90ch}
+
+@media (max-width:980px){
+  .hero-grid,.question,.theme-grid,.minor,.earlier,.course,.about-grid,.band-head{grid-template-columns:1fr}
+  .about-grid{gap:32px}
+  .about-photo{max-width:260px}
+  .band-head{gap:16px;margin-bottom:36px}
+  .theme-body{padding-left:0}
+  .trio{grid-template-columns:1fr;gap:48px}
+  .cols{grid-template-columns:1fr;gap:48px}
+  .recent{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .recent li::before{display:none}
+}
+@media (max-width:700px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .topbar{position:static;background:var(--navy)}
+  .topbar-in{flex-direction:column;align-items:flex-start;gap:0;padding-top:12px}
+  .topbar nav{overflow-x:auto;max-width:100%;gap:18px;scrollbar-width:none;padding-bottom:4px}
+  .topbar nav::-webkit-scrollbar{display:none}
+  html{scroll-padding-top:12px}
+  .hero{padding-top:40px;min-height:0}
+  .scroll-cue{display:none}
+  .recent{padding-bottom:80px}
+  .band-navy.has-edge{padding-top:110px}
+  .hero-grid{gap:32px}
+  .recent{grid-template-columns:1fr;gap:16px;margin-top:40px}
+  .band{padding:72px 0}
+  .theme{margin-top:84px}
+  .theme-head{grid-template-columns:48px minmax(0,1fr)}
+  .num{font-size:46px}
+  .panels-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .panel-tall,.panel-mid{height:200px}
+  .ladder-row{grid-template-columns:1fr}
+  .wide-plate{margin:0 -20px;border-radius:0;border-left:0;border-right:0}
+  .lab{padding:12px 10px}
+  .lab-head{flex-direction:column;align-items:stretch}
+  .lab .seg{display:flex}
+  .lab .seg button{flex:1;padding:9px 6px}
+  .lab-head .textbtn{align-self:flex-end}
+  .ruler{margin:6px 10px 0}
+  .dated li{grid-template-columns:1fr;gap:2px}
+  .seg{flex-wrap:wrap;border-radius:18px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">Amir Rajabpoor Alisepahi<span>.</span></a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section id="top" class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Amir Rajabpoor Alisepahi</h1>
+      <p class="hero-statement">Controlling waves by design, from dynamic modeling to <em>experimental validation</em>.</p>
+      <p class="hero-role">Lecturer in Mechanical Engineering at the University of Vermont. Ph.D. 2026, advised by Prof. Jihong Ma.</p>
+      <p class="actions">
+        <a class="btn btn-amber" href="Amir_Rajabpoor_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=MOrZOPQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </p>
+    </div>
+    <figure class="hero-media">
+      <div class="glow-ring"><div class="plate">
+        <video data-auto muted loop playsinline preload="none" poster="media/ladder-boundary.jpg" width="1080" height="810" aria-label="Animation: a torsional impulse travels through a two-leg ladder and energy collects at both ends."><source src="media/ladder-boundary.mp4" type="video/mp4"></video>
+      </div></div>
+      <figcaption>Simulated torsional impulse in a two-leg phononic ladder. The pulse travels away, and energy stays at both ends as boundary-localized modes.</figcaption>
+    </figure>
+  </div>
+  <div class="wrap">
+    <ol class="recent" aria-label="Recent">
+      <li><time>Fall 2026</time>Teaching ME 2120 System Dynamics at UVM</li>
+      <li><time>Nov 2026</time>Unconventional edge states at ASME IMECE 2026, Vancouver</li>
+      <li><time>May 2026</time>Ph.D. in Mechanical Engineering, University of Vermont</li>
+      <li><time>2023</time>Communications Physics paper featured as an editor’s highlight</li>
+    </ol>
+  </div>
+  <svg class="wave-edge" viewBox="0 0 2880 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,35 Q180,62 360,35 T720,35 T1080,35 T1440,35 T1800,35 T2160,35 T2520,35 T2880,35 L2880,70 L0,70 Z" fill="#fff"/></svg>
+</section>
+
+<section id="about" class="band">
+  <div class="wrap about-grid reveal">
+    <figure class="about-photo"><img src="img/amir.jpg" alt="Portrait of Amir Rajabpoor Alisepahi" width="800" height="800"></figure>
+    <div>
+      <h2 class="visually-h2" style="font-size:clamp(36px,4.6vw,56px);font-weight:500;line-height:1.05;margin-bottom:24px">About</h2>
+      <p class="lede">I work on how vibration and sound move through architected structures, and on putting that energy exactly where a design intends.</p>
+      <div class="prose">
+        <p>My Ph.D. at the University of Vermont, with Prof. Jihong Ma, studied phononic crystals, mechanical metamaterials and topological lattices, and what to do when the textbook rules for predicting localized waves break down.</p>
+        <p>I take each problem from the model to the hardware. I derive the dispersion relations and eigenvalue problems, build COMSOL and custom MATLAB and Python models, design and 3D-print the specimens, and measure them with shaker excitation and scanning laser Doppler vibrometry. When a measurement and a model disagree, I revisit the assumptions, boundary conditions and geometry until the design is backed by both.</p>
+        <p>Before graduate school I spent six years as a mechanical engineer at Felez Taban Co., running failure analysis and process development for heat-treated metal parts. Today I teach System Dynamics at UVM, and I’m open to industry R&amp;D and research roles in vibration, acoustics, metamaterials and thermal design.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Ph.D., Mechanical Engineering</b>University of Vermont, 2026</li>
+        <li><b>Lecturer, System Dynamics</b>University of Vermont, 2026 to present</li>
+        <li><b>Graduate Certificate, Complex Systems and Data Science</b>University of Vermont</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="research" class="band band-ice">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <h2>Research</h2>
+      <p>Structured materials can guide, block or trap waves on purpose. Trapping them, or localization, is the hardest of the three.</p>
+    </div>
+
+    <div class="question">
+      <div class="reveal">
+        <p class="big">How do we make sure vibrational energy ends up exactly where we designed it to go?</p>
+        <div class="prose">
+          <p>The classic answer adds a defect: change the mass or stiffness of one cell and the energy stays there. It works, but it needs a clean band gap and precise geometry, and it is fragile to disorder. My Ph.D. developed two more systematic routes, one for lattices with a band gap and one for lattices without, and tested both in 3D-printed hardware.</p>
+        </div>
+      </div>
+      <figure class="fig reveal" style="margin-top:0;--d:.15s">
+        <div class="plate" style="border:1px solid var(--rule)">
+          <video data-auto muted loop playsinline preload="none" poster="media/column-defect.jpg" width="1000" height="938" aria-label="Animation: a torsional wave travels up a lattice column and localizes at a defect cell."><source src="media/column-defect.mp4" type="video/mp4"></video>
+        </div>
+        <figcaption><span class="fig-no">Figure 1.</span> Simulated torsional wave in a 3D lattice column. The wave travels up and localizes at a defect cell.</figcaption>
+      </figure>
+    </div>
+
+    <article class="theme reveal" aria-labelledby="t1">
+      <div class="theme-head"><span class="num" aria-hidden="true">1</span><h3 id="t1">With a band gap: topology, and where it breaks</h3></div>
+      <div class="theme-grid theme-body">
+        <div class="prose">
+          <p>Topology predicts localized states straight from the bulk band structure. In a Su–Schrieffer–Heeger (SSH) lattice, the winding number counts the protected states at a domain wall, but that rule assumes nearest-neighbor springs. We showed in theory and in experiment that strong long-range springs create more domain-wall states than the winding number allows. The Berry connection and Jackiw–Rebbi theory count them correctly and tie each state to a Dirac cone in the bulk bands.</p>
+          <p>A follow-up study tracked which in-gap edge and domain-wall states survive when the lattice’s chiral symmetry is strongly perturbed, which sets expectations for real, continuum phononic crystals.</p>
+        </div>
+        <aside class="role">
+          <h4>My role</h4>
+          <ul>
+            <li>Theory lead and first author</li>
+            <li>Berry-connection and Jackiw–Rebbi analysis</li>
+            <li>Supercell numerics that exposed the failure cases</li>
+            <li>Designed the 3D-printed specimen and ran the vibrometer experiments</li>
+          </ul>
+          <div class="refs">
+            <p><a href="https://doi.org/10.1038/s42005-023-01461-0" target="_blank" rel="noopener"><i>Communications Physics</i> 6, 334 (2023)</a>, editor’s highlight</p>
+            <p><a href="https://doi.org/10.3390/cryst14010102" target="_blank" rel="noopener"><i>Crystals</i> 14, 102 (2024)</a></p>
+          </div>
+        </aside>
+      </div>
+
+      <figure class="fig reveal" data-clipfig="topo">
+        <div class="fig-ctl">
+          <div class="seg" role="group" aria-label="Choose a case" data-group>
+            <button type="button" data-value="bulk" aria-pressed="true">Bulk wave</button>
+            <button type="button" data-value="gap" aria-pressed="false">Band gap</button>
+            <button type="button" data-value="interface" aria-pressed="false">Interface mode</button>
+          </div>
+        </div>
+        <div class="plate wide-plate">
+          <video muted loop playsinline preload="none" poster="media/bulk.jpg" aria-label="Simulation clip: wave packet in a topological phononic lattice"></video>
+        </div>
+        <figcaption><span class="fig-no">Figure 2.</span> Time-domain simulation of a topological phononic lattice with nonlocal coupling, driven at a target frequency. Displacement is plotted against site index; the dotted line marks the domain wall between regions of different topology, and the shaded ends are absorbing (PML) layers. <span class="fig-var"></span></figcaption>
+      </figure>
+
+      <figure class="fig">
+        <div class="panels panels-3">
+          <div class="panel panel-tall"><span class="tag">a</span><img class="zoomable" src="img/ssh-unitcell.jpg" alt="Drawing of the specimen unit cell: red frame, green blocks, yellow and blue rods." loading="lazy" width="1000" height="738"></div>
+          <div class="panel panel-tall photo"><span class="tag">b</span><img class="zoomable" src="img/lab-shaker.jpg" alt="3D-printed lattice column mounted on an electrodynamic shaker." loading="lazy" width="451" height="612"></div>
+          <div class="panel panel-tall photo"><span class="tag">c</span><img class="zoomable" src="img/lab-ldv.jpg" alt="Scanning laser Doppler vibrometer aimed at the specimen." loading="lazy" width="450" height="345"></div>
+          <div class="panel panel-mid"><span class="tag">d</span><img class="zoomable" src="img/ssh-dispersion.jpg" alt="Heat map of frequency against wavenumber with predicted bands overlaid." loading="lazy" width="427" height="539"></div>
+          <div class="panel panel-mid"><span class="tag">e</span><img class="zoomable" src="img/ssh-spectrum-strong.jpg" alt="Measured spectrum with strong third-nearest-neighbor coupling." loading="lazy" width="975" height="600"></div>
+          <div class="panel panel-mid"><span class="tag">f</span><img class="zoomable" src="img/ssh-spectrum-weak.jpg" alt="Measured spectrum with weak third-nearest-neighbor coupling." loading="lazy" width="975" height="600"></div>
+        </div>
+        <figcaption><span class="fig-no">Figure 3.</span> From model to hardware. (a) Specimen unit cell: the red frame provides third-nearest-neighbor coupling, green blocks are the masses, and yellow and blue rods are the nearest-neighbor springs. (b) The 3D-printed lattice on the shaker. (c) Scanning laser Doppler vibrometer. (d) Measured dispersion with the predicted bands overlaid. (e, f) Measured frequency response with strong and weak third-nearest-neighbor coupling, separating domain-wall modes from bulk modes.</figcaption>
+      </figure>
+    </article>
+
+    <article class="theme reveal" aria-labelledby="t2">
+      <div class="theme-head"><span class="num" aria-hidden="true">2</span><h3 id="t2">Without a band gap: localizing with dispersion</h3></div>
+      <div class="theme-grid theme-body">
+        <div class="prose">
+          <p>Some lattices have no band gap at all, yet still hold energy at their ends. In a biased two-leg phononic ladder with long-range coupling, zero-group-velocity points in the bulk dispersion predict boundary-localized states that sit inside a continuum of traveling waves, much like bound states in the continuum. They need no band gap, no topological invariant and no symmetry breaking. The animation at the top of this page shows one in simulation.</p>
+          <p class="side-note"><b>The hard part was the boundary.</b> Cutting the long-range bridges at the ends of the ladder left a geometry that no single equivalent spring could reproduce, so I iterated the boundary design against the model in COMSOL until it matched the bulk.</p>
+        </div>
+        <aside class="role">
+          <h4>My role</h4>
+          <ul>
+            <li>Bulk dispersion and stationary-point analysis</li>
+            <li>Finite-lattice participation-ratio study</li>
+            <li>Designed the 3D-printed ladder, including the boundary compensation, and printed it on a Stratasys F170</li>
+            <li>Shaker and vibrometer experiments, correlated with COMSOL</li>
+          </ul>
+          <div class="refs">
+            <p>Manuscript with C. A. Downing (University of Exeter) and J. Ma, 2026</p>
+            <p>ASME IMECE 2026, Vancouver</p>
+          </div>
+        </aside>
+      </div>
+      <figure class="fig">
+        <div class="panel photo" style="height:auto"><span class="tag">a</span><img class="zoomable" src="img/ladder-setup.jpg" alt="Photo of the vibrometer test setup next to drawings of the finite ladder and its unit cell." loading="lazy" width="1256" height="544"></div>
+        <div class="ladder-row">
+          <div class="panel" style="height:auto"><span class="tag">b</span><img class="zoomable" src="img/ladder-heatmap.jpg" alt="Measured response heat map against simulated bands, with six mode-shape insets." loading="lazy" width="864" height="597"></div>
+          <div class="panel" style="height:auto"><span class="tag">c</span><img class="zoomable" src="img/ladder-pr.jpg" alt="Participation ratio from the experiment, and measured against simulated mode shapes." loading="lazy" width="1600" height="581"></div>
+        </div>
+        <figcaption><span class="fig-no">Figure 4.</span> (a) Test setup and ladder design: gray frames are the masses, green rods the second-nearest-neighbor coupling, pink rods the inter-chain coupling and orange rods the grounding stiffness. (b) Measured response against the simulated bands, with mode shapes I–VI. (c) Participation ratio from the experiment, and measured against simulated mode shapes of the boundary-localized state.</figcaption>
+      </figure>
+    </article>
+
+    <article class="minor reveal" aria-labelledby="t3">
+      <div class="prose">
+        <span class="status">Ongoing</span>
+        <h3 id="t3">Nonlinear waves in mass-in-mass chains</h3>
+        <p>How does a nonlinear, nonlocal spring change the way a wave packet travels? I model mass-in-mass chains with internal resonators and second-neighbor springs, derive amplitude-dependent dispersion with multiple-scale analysis, and check it against time integration. Choosing the carrier wavenumber <i>κ</i> and frequency excites the acoustic or optic branch on purpose; with the nonlinearity switched on, packets change speed and solitary-wave-like peaks appear.</p>
+      </div>
+      <div class="prose">
+        <span class="status">Manuscript</span>
+        <h3>Two kinds of interface states in an acoustic SSH analog</h3>
+        <p>A continuous one-dimensional acoustic phononic crystal that reproduces SSH-like phases and hosts dual interface states, with COMSOL band structures, Zak-phase and Wilson-loop analysis, and measured interface modes.</p>
+      </div>
+    </article>
+    <figure class="fig reveal" data-clipfig="nl">
+      <div class="fig-ctl">
+        <div class="seg" role="group" aria-label="Choose a branch" data-group>
+          <button type="button" data-value="acoustic" aria-pressed="true">Acoustic branch</button>
+          <button type="button" data-value="optic" aria-pressed="false">Optic branch</button>
+        </div>
+        <div class="seg" role="group" aria-label="Choose a regime" data-group>
+          <button type="button" data-value="linear" aria-pressed="true">Linear</button>
+          <button type="button" data-value="nonlinear" aria-pressed="false">Nonlinear, low <i>κ</i></button>
+          <button type="button" data-value="solitary" aria-pressed="false">Solitary wave</button>
+        </div>
+      </div>
+      <div class="plate wide-plate">
+        <video muted loop playsinline preload="none" poster="media/acoustic-linear.jpg" aria-label="Simulation clip: wave packet in a nonlinear mass-in-mass chain"></video>
+      </div>
+      <figcaption><span class="fig-no">Figure 5.</span> Wave packets in a mass-in-mass chain with a nonlinear nonlocal spring, showing outer-mass displacement <i>u</i> against cell index <i>n</i>. Blue dots are masses, green dots mark crests, and the shaded ends are absorbing (PML) layers. <span class="fig-var"></span></figcaption>
+    </figure>
+
+    <div class="earlier reveal">
+      <div class="prose">
+        <h3>Earlier work</h3>
+        <p>During my M.Sc. at the University of Tehran I studied size-dependent vibration and buckling of functionally graded nanoplates, using nonlocal elasticity, higher-order plate theories, GDQ and finite elements. Later work extended this to wave propagation in thick graphene sheets and to temperature-dependent phonon bands.</p>
+        <h4>Data science</h4>
+        <p>Projects from UVM’s Complex Systems and Data Science program: counter-propagation neural networks that predict soil parameters from limited measurements, classification of crash severity in Vermont from weather, time and road data, spatio-temporal malaria models with R-INLA and SPDE, and annotation schemes and classifiers for antisemitic content on Twitter.</p>
+      </div>
+      <figure class="fig" style="margin-top:6px">
+        <div class="panel" style="height:auto"><img class="zoomable" src="img/phonon-bands-temperature.jpg" alt="Four phonon band structure plots labeled T=200, 400, 800 and 1200." loading="lazy" width="1000" height="656"></div>
+        <figcaption><span class="fig-no">Figure 6.</span> Temperature-dependent phonon band structures from multiscale simulations, at <i>T</i> = 200, 400, 800 and 1200.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="lab" class="band band-navy has-edge">
+  <svg class="edge-top" viewBox="0 0 2880 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 Q180,57 360,30 T720,30 T1080,30 T1440,30 T1800,30 T2160,30 T2520,30 T2880,30 L2880,0 L0,0 Z" fill="#F2F5FA"/></svg>
+  <div class="wrap">
+    <div class="band-head reveal">
+      <h2>Try it: a lattice in your browser</h2>
+      <p>A live mass–spring SSH chain, the simplest model behind the first approach above. Send a wave in, or tap the chain to pluck it.</p>
+    </div>
+    <figure class="lab reveal" aria-labelledby="lab-cap">
+      <div class="lab-head">
+        <div class="seg" role="group" aria-label="Choose how to excite the lattice">
+          <button type="button" data-mode="pass" aria-pressed="false">Pass band</button>
+          <button type="button" data-mode="gap" aria-pressed="false">Band gap</button>
+          <button type="button" data-mode="interface" aria-pressed="false">Interface mode</button>
+        </div>
+        <button type="button" class="textbtn" id="lab-pause" aria-pressed="false">Pause</button>
+      </div>
+      <canvas id="lattice" role="img" aria-label="Live simulation of a one-dimensional mass-spring lattice with a domain wall in the middle and absorbing layers at both ends."></canvas>
+      <div class="ruler" aria-hidden="true">
+        <div class="track"></div>
+        <div class="bandseg" style="left:0;width:47.14%"></div>
+        <div class="gapseg" style="left:47.14%;width:34.51%"></div>
+        <div class="bandseg" style="left:81.65%;width:12.63%"></div>
+        <div class="lbl" style="left:23.57%">pass band</div>
+        <div class="lbl" style="left:64.4%">band gap</div>
+        <div class="lbl" style="left:87.96%">pass band</div>
+        <div class="marker" id="ruler-marker" style="left:28.3%"><span id="ruler-value">ω = 0.85</span></div>
+      </div>
+      <p class="lab-status" id="lab-status" aria-live="polite"></p>
+      <figcaption id="lab-cap">Thick and thin bonds are stiff and soft springs. Their order flips at the dashed line, which creates a domain wall, and orange masses at both ends absorb outgoing waves. The scale under the chain shows the two pass bands and the band gap; the marker is the drive frequency, in units of √(<i>k</i>/<i>m</i>) for the soft spring.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="multiphysics" class="band">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <h2>Heat and multiphysics</h2>
+      <p>The same modeling-and-validation habits, applied to medical devices, chip cooling and OLED displays.</p>
+    </div>
+    <div class="trio">
+      <article class="reveal" style="--d:0.00s">
+        <figure>
+          <div class="plate"><video data-auto muted loop playsinline preload="none" poster="media/ablation.jpg" width="640" height="480" aria-label="Animation: tissue temperature rising between two electrodes."><source src="media/ablation.mp4" type="video/mp4"></video></div>
+          <figcaption>Simulated tissue temperature between two electrodes during ablation.</figcaption>
+        </figure>
+        <h3>RF cardiac ablation</h3>
+        <p>COMSOL models that couple electric conduction and transient heat transfer in heart tissue, used to study how electrode tip geometry and voltage change lesion depth and hot spots.</p>
+        <p class="meta">With clinical collaborators, 2024 to 2026</p>
+      </article>
+      <div class="stack reveal" style="--d:.12s">
+      <article>
+        <h3>Chip-scale heat spreading</h3>
+        <p>Thermal models of fin arrays and package-level heat paths, checked against analytical and MATLAB solutions. They support CrysoTherm Innovation, our NSF I-Corps team exploring phononic and thermal metamaterials for chips, packages and displays, which advanced to the next $50,000 I-Corps phase.</p>
+        <p class="meta">NSF I-Corps, 2024 to 2026</p>
+      </article>
+      <article>
+        <h3>Edge states in OLED stacks</h3>
+        <p>MDPC OLED stacks treated as one-dimensional photonic crystals with edge states, using transfer-matrix models and optical measurements to connect spectra to layer design, mirrors and fabrication tolerances.</p>
+        <p class="meta">2025 to present</p>
+      </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching" class="band band-ice">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <h2>Teaching</h2>
+      <p>I like turning equations into something students can watch happen, so I build my own animations for class.</p>
+    </div>
+    <div class="course reveal">
+      <div>
+        <h3>ME 2120 System Dynamics</h3>
+        <p class="when">Instructor, University of Vermont, Fall 2026</p>
+        <p>Modeling of mechanical, electrical, fluid and thermal systems, with MATLAB used throughout lecture. Students learn to connect pole locations to system response and to read time and frequency responses.</p>
+        <ul class="topics" aria-label="Topics">
+          <li>Transfer functions</li><li>Step and Bode responses</li><li>Poles and stability</li><li>State space</li><li>PID control</li>
+        </ul>
+      </div>
+      <figure class="fig" style="margin-top:0">
+        <div class="plate"><video data-auto muted loop playsinline preload="none" poster="media/tank-step.jpg" width="1000" height="660" aria-label="Animation: water level in a tank rising after a step increase in inflow, with the level response plotted."><source src="media/tank-step.mp4" type="video/mp4"></video></div>
+        <figcaption>From the course: a tank’s water level responding to a step increase in inflow, with the level response plotted as it happens.</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="subhead" style="margin-top:72px">Before</h3>
+    <ul class="dated">
+      <li><span class="t">2023, 2025</span><div><p class="title">Guest lecturer, ME 6990 Advanced Heat Transfer</p><p class="meta2">University of Vermont</p></div></li>
+      <li><span class="t">2022</span><div><p class="title">Teaching assistant and guest lecturer, ME 101 Materials Engineering; teaching assistant, ME 001 First-Year Design</p><p class="meta2">University of Vermont</p></div></li>
+      <li><span class="t">2022–2026</span><div><p class="title">Mentor and lab safety officer, Advanced Materials Laboratory</p><p class="meta2">Helped recruit, onboard and mentor undergraduate and graduate researchers; wrote and updated lab procedures and managed hazardous-waste compliance.</p></div></li>
+      <li><span class="t">2014–2016</span><div><p class="title">Teaching assistant, CNC and machining workshop</p><p class="meta2">University of Tehran. Wrote course materials, ran live CNC demonstrations and trained more than 100 students in safe workshop practice.</p></div></li>
+      <li><span class="t">2013</span><div><p class="title">Guest lecturer, Energy Methods in Solid Mechanics</p><p class="meta2">University of Tehran</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="publications" class="band">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <h2>Publications</h2>
+      <p>Citations and the full list are on <a href="https://scholar.google.com/citations?user=MOrZOPQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    </div>
+    <h3 class="subhead">Journal articles</h3>
+    <ul class="dated">
+      <li><span class="t">2024</span><div><p class="title">In-gap edge and domain-wall states in largely perturbed phononic Su–Schrieffer–Heeger lattices</p><p class="meta2"><span class="me">A. Rajabpoor Alisepahi</span>, J. Ma. <i>Crystals</i> 14, 102. <a href="https://doi.org/10.3390/cryst14010102" target="_blank" rel="noopener">doi:10.3390/cryst14010102</a></p></div></li>
+      <li><span class="t">2023</span><div><p class="title">Breakdown of conventional winding number calculation in one-dimensional lattices with interactions beyond nearest neighbors <span class="flag">Editor’s highlight</span></p><p class="meta2"><span class="me">A. Rajabpoor Alisepahi</span>, S. Sarkar, K. Sun, J. Ma. <i>Communications Physics</i> 6, 334. <a href="https://doi.org/10.1038/s42005-023-01461-0" target="_blank" rel="noopener">doi:10.1038/s42005-023-01461-0</a></p></div></li>
+      <li><span class="t">2022</span><div><p class="title">Wave analysis of thick rectangular graphene sheets: thickness and small-scale effects on natural and bifurcation frequencies</p><p class="meta2">S. M. Mousavi Janbeh Sarayi, <span class="me">A. Rajabpoor Alisepahi</span>, A. Bahrami. <i>Sustainability</i> 14, 12329. <a href="https://doi.org/10.3390/su141912329" target="_blank" rel="noopener">doi:10.3390/su141912329</a></p></div></li>
+      <li><span class="t">2018</span><div><p class="title">Free vibration analysis of nanoplates made of functionally graded materials based on nonlocal elasticity theory using finite element method</p><p class="meta2">A. Zargaripoor, A. Daneshmehr, S. I. Isaac Hosseini, <span class="me">A. Rajabpoor</span>. <i>Journal of Computational Applied Mechanics</i> 49, 86–101. <a href="https://doi.org/10.22059/jcamech.2018.248906.223" target="_blank" rel="noopener">doi:10.22059/jcamech.2018.248906.223</a></p></div></li>
+      <li><span class="t">2015</span><div><p class="title">Size dependent free vibration analysis of nanoplates made of functionally graded materials based on nonlocal elasticity theory with high order theories</p><p class="meta2">A. Daneshmehr, <span class="me">A. Rajabpoor</span>, A. Hadi. <i>International Journal of Engineering Science</i>. <a href="https://doi.org/10.1016/j.ijengsci.2015.05.011" target="_blank" rel="noopener">doi:10.1016/j.ijengsci.2015.05.011</a></p></div></li>
+      <li><span class="t">2014</span><div><p class="title">Stability of size dependent functionally graded nanoplate based on nonlocal elasticity and higher order plate theories and different boundary conditions</p><p class="meta2">A. Daneshmehr, <span class="me">A. Rajabpoor</span>. <i>International Journal of Engineering Science</i> 82, 84–100. <a href="https://doi.org/10.1016/j.ijengsci.2014.04.017" target="_blank" rel="noopener">doi:10.1016/j.ijengsci.2014.04.017</a></p></div></li>
+      <li><span class="t">2013</span><div><p class="title">Thermal effect on static bending, vibration and buckling of Reddy beam based on modified couple stress theory</p><p class="meta2">A. R. Daneshmehr, M. Mohammad Abadi, <span class="me">A. Rajabpoor</span>. <i>Applied Mechanics and Materials</i> 332, 331–338. <a href="https://doi.org/10.4028/www.scientific.net/AMM.332.331" target="_blank" rel="noopener">doi:10.4028/www.scientific.net/AMM.332.331</a></p></div></li>
+    </ul>
+    <h3 class="subhead">Manuscripts</h3>
+    <ul class="dated">
+      <li><span class="t">2026</span><div><p class="title">Boundary resonances from coalescing zero-group-velocity points</p><p class="meta2"><span class="me">A. Rajabpoor Alisepahi</span>, C. A. Downing, J. Ma. Theory and experiment.</p></div></li>
+      <li><span class="t">In preparation</span><div><p class="title">Unveiling dual topological states in a 1D acoustic analog of the SSH model</p></div></li>
+    </ul>
+    <h3 class="subhead">Conference</h3>
+    <ul class="dated">
+      <li><span class="t">2026</span><div><p class="title">Unconventional edge states in phononic crystals with long-range coupling</p><p class="meta2"><span class="me">A. Rajabpoor Alisepahi</span>, C. A. Downing, J. Ma. ASME International Mechanical Engineering Congress and Exposition (IMECE), Vancouver.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="experience" class="band band-ice">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <h2>Experience and education</h2>
+      <p>Ten years across industry and research: failure analysis on the shop floor, then wave physics in the lab, now teaching.</p>
+    </div>
+    <ul class="dated">
+      <li><span class="t">2026–</span><div><p class="title">Lecturer, System Dynamics</p><p class="meta2">University of Vermont, Department of Mechanical Engineering</p></div></li>
+      <li><span class="t">2022–2026</span><div><p class="title">Ph.D., Mechanical Engineering, and mechanical design engineer, Advanced Materials Laboratory</p><p class="meta2">University of Vermont. Experimental-mechanics projects from analytical concepts and COMSOL models through CAD-informed fabrication, instrumentation and testing, reaching about 5% model-to-experiment deviation and 70% first-pass prototype success.</p></div></li>
+      <li><span class="t">2024–2026</span><div><p class="title">RF and thermal modeling collaborator, biomedical device project; semiconductor thermal innovation lead, NSF I-Corps (CrysoTherm Innovation)</p><p class="meta2">University of Vermont</p></div></li>
+      <li><span class="t">2022–2024</span><div><p class="title">Graduate Certificate, Complex Systems and Data Science</p><p class="meta2">University of Vermont</p></div></li>
+      <li><span class="t">2016–2021</span><div><p class="title">Mechanical engineer, Felez Taban Co.</p><p class="meta2">Tehran. Failure and root-cause investigations of heat-treated metal parts (distortion, warpage, cracking, hardness), and process development of fixtures, racking, furnace cycles and quench handling for repeatability and first-pass quality.</p></div></li>
+      <li><span class="t">2014–2016</span><div><p class="title">Teaching assistant and workshop instructor</p><p class="meta2">University of Tehran</p></div></li>
+      <li><span class="t">2011–2013</span><div><p class="title">M.Sc., Mechanical Engineering</p><p class="meta2">University of Tehran. Thesis: vibration and buckling of functionally graded nanoplates using GDQ and FEM.</p></div></li>
+      <li><span class="t">2006–2011</span><div><p class="title">B.Sc., Mechanical Engineering</p><p class="meta2">Razi University, Kermanshah. Project: low-velocity impact on functionally graded circular plates.</p></div></li>
+    </ul>
+
+    <div class="cols">
+      <div>
+        <h3 class="subhead">Honors and leadership</h3>
+        <ul class="plain">
+          <li>Editor’s highlight, <i>Communications Physics</i>, 2023</li>
+          <li>NSF I-Corps: CrysoTherm Innovation team advanced to the $50,000 phase</li>
+          <li>President, Iranian Student Association, University of Vermont, 2023</li>
+          <li>Best Researcher distinction, University of Vermont</li>
+          <li>SPIE travel grant, 2022</li>
+          <li>Top 2% of more than 40,000 applicants in Iran’s national university entrance exam</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="subhead">Skills</h3>
+        <ul class="plain">
+          <li><b>Testing:</b> shaker excitation, scanning laser Doppler vibrometry, FFT and frequency-response functions, model-to-test correlation</li>
+          <li><b>Simulation:</b> COMSOL Multiphysics, ANSYS, Abaqus, finite elements, GDQ, transfer matrices, Zak phase and Wilson loops</li>
+          <li><b>Design:</b> SolidWorks, GD&amp;T, fixtures and tooling, 3D printing, CNC machining, KLayout</li>
+          <li><b>Code and data:</b> MATLAB, Python, R, TensorFlow, PyTorch, signal processing</li>
+          <li><b>Failure analysis:</b> root-cause investigation, heat-treatment history, distortion, warpage and cracking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section id="contact" class="band band-navy contact has-edge">
+  <svg class="edge-top" viewBox="0 0 2880 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 Q180,57 360,30 T720,30 T1080,30 T1440,30 T1800,30 T2160,30 T2520,30 T2880,30 L2880,0 L0,0 Z" fill="#F2F5FA"/></svg>
+  <div class="wrap">
+    <h2>Let’s talk about waves.</h2>
+    <p class="prose">I’m glad to hear about research collaborations, industry R&amp;D roles and teaching in vibration, acoustics, metamaterials and thermal design. Email is the best way to reach me.</p>
+    <p class="email"><a href="mailto:arajabpo@uvm.edu">arajabpo@uvm.edu</a></p>
+    <p class="office">Department of Mechanical Engineering, 201F Votey Hall, University of Vermont, Burlington</p>
+    <ul class="links">
+      <li><a class="btn btn-amber" href="Amir_Rajabpoor_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+      <li><a class="btn btn-ghost" href="https://scholar.google.com/citations?user=MOrZOPQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+      <li><a class="btn btn-ghost" href="https://www.linkedin.com/in/amir-rajabpoor-52182384" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a class="btn btn-ghost" href="https://github.com/Amir-rajabpoor" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <p>© 2026 Amir Rajabpoor Alisepahi. Animations and figures are from my research and teaching; the lattice under “Try it” is a live simulation written for this site.</p>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged figure"><button type="button" aria-label="Close">×</button><img alt=""><p></p></dialog>
+
+<script>
+(function () {
+  "use strict";
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var PAUSE_ICON = '<svg viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg>';
+  var PLAY_ICON = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5 L12.5 7 L3 12.5 Z" fill="currentColor"/></svg>';
+
+
+  /* ---------- Reveal, progress, lightbox ---------- */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    Array.prototype.forEach.call(revealEls, function (el) { rio.observe(el); });
+  } else {
+    Array.prototype.forEach.call(revealEls, function (el) { el.classList.add("in"); });
+  }
+  var prog = document.getElementById("progress");
+  function onScroll() {
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    prog.style.transform = "scaleX(" + (max > 0 ? h.scrollTop / max : 0) + ")";
+  }
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  var lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img"), lbCap = lb.querySelector("p");
+  function openLb(img) {
+    lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt;
+    var fig = img.closest("figure"), cap = fig && fig.querySelector("figcaption");
+    lbCap.textContent = cap ? cap.textContent : img.alt;
+    if (lb.showModal) lb.showModal(); else lb.setAttribute("open", "");
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("img.zoomable"), function (img) {
+    img.setAttribute("tabindex", "0"); img.setAttribute("role", "button");
+    img.setAttribute("aria-label", "Enlarge: " + img.alt);
+    img.addEventListener("click", function () { openLb(img); });
+    img.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLb(img); } });
+  });
+  lb.addEventListener("click", function (e) { if (e.target === lb || e.target.tagName === "BUTTON") { if (lb.close) lb.close(); else lb.removeAttribute("open"); } });
+
+  /* ---------- Hero wave field ---------- */
+  (function () {
+    var hero = document.querySelector(".hero"), field = document.getElementById("field");
+    if (!field || !field.getContext) return;
+    var fx = field.getContext("2d"), fw = 0, fh = 0, pts = [], sources = [], raf = null, inView = true;
+    var SP = 26, lastSpawn = 0, lastUser = -1e9, lastAuto = 0;
+    function fresize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      fw = hero.clientWidth; fh = hero.clientHeight;
+      field.width = Math.round(fw * dpr); field.height = Math.round(fh * dpr);
+      fx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      pts = [];
+      for (var y = SP / 2; y < fh; y += SP) for (var x = SP / 2; x < fw; x += SP) pts.push(x, y);
+      fdraw(performance.now());
+    }
+    function spawn(x, y, now, strength) {
+      sources.push({ x: x, y: y, t: now, s: strength || 1 });
+      if (sources.length > 7) sources.shift();
+    }
+    function fdraw(now) {
+      fx.clearRect(0, 0, fw, fh);
+      var c = 0.30, kk = 2 * Math.PI / 74, width = 120;
+      var quiet = new Path2D();
+      var active = [];
+      sources = sources.filter(function (s) { return now - s.t < 5200; });
+      for (var i = 0; i < pts.length; i += 2) {
+        var x = pts[i], y = pts[i + 1], dx = 0, dy = 0, amp = 0;
+        for (var j = 0; j < sources.length; j++) {
+          var s = sources[j], age = now - s.t, R = age * c, ddx = x - s.x, ddy = y - s.y;
+          var r = Math.sqrt(ddx * ddx + ddy * ddy) + 0.001, e = (r - R) / width;
+          if (e > 1.6 || e < -1.6) continue;
+          var a = Math.sin(kk * (r - R)) * Math.exp(-e * e * 2) * Math.exp(-age / 2400) * s.s;
+          dx += ddx / r * a * 7; dy += ddy / r * a * 7; amp += a;
+        }
+        if (Math.abs(amp) < 0.04) { quiet.moveTo(x + 1.1, y); quiet.arc(x, y, 1.1, 0, 6.2832); }
+        else active.push(x + dx, y + dy, amp);
+      }
+      fx.fillStyle = "rgba(233,238,246,0.12)"; fx.fill(quiet);
+      for (var q = 0; q < active.length; q += 3) {
+        var m = Math.min(1, Math.abs(active[q + 2]));
+        fx.fillStyle = active[q + 2] > 0 ? "rgba(79,209,197," + (0.18 + 0.75 * m).toFixed(3) + ")" : "rgba(217,142,43," + (0.18 + 0.7 * m).toFixed(3) + ")";
+        fx.beginPath(); fx.arc(active[q], active[q + 1], 1.1 + 1.9 * m, 0, 6.2832); fx.fill();
+      }
+    }
+    function loop(now) {
+      raf = null;
+      if (!inView || document.hidden) return;
+      if (now - lastUser > 3500 && now - lastAuto > 2600) {
+        lastAuto = now;
+        spawn(fw * (0.45 + Math.random() * 0.5), fh * (0.15 + Math.random() * 0.6), now, 0.9);
+      }
+      fdraw(now);
+      raf = requestAnimationFrame(loop);
+    }
+    function kickField() { if (!reduceMotion && raf == null && inView && !document.hidden) raf = requestAnimationFrame(loop); }
+    hero.addEventListener("pointermove", function (e) {
+      if (reduceMotion) return;
+      var now = performance.now(); lastUser = now;
+      if (now - lastSpawn < 260) return;
+      lastSpawn = now;
+      var r = hero.getBoundingClientRect();
+      spawn(e.clientX - r.left, e.clientY - r.top, now, 0.8);
+      kickField();
+    });
+    hero.addEventListener("pointerdown", function (e) {
+      if (reduceMotion) return;
+      var r = hero.getBoundingClientRect(), now = performance.now(); lastUser = now;
+      spawn(e.clientX - r.left, e.clientY - r.top, now, 1.5); kickField();
+    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { inView = es[0].isIntersecting; kickField(); }, { threshold: 0 }).observe(hero);
+    }
+    document.addEventListener("visibilitychange", kickField);
+    var frt; window.addEventListener("resize", function () { clearTimeout(frt); frt = setTimeout(fresize, 150); });
+    fresize();
+    kickField();
+  })();
+
+  /* ---------- Videos that play like GIFs ---------- */
+  function makeLooping(video, plate) {
+    var userPaused = reduceMotion, inView = false;
+    video.muted = true;
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "motion";
+    plate.appendChild(btn);
+    function label() {
+      var paused = video.paused;
+      btn.innerHTML = paused ? PLAY_ICON : PAUSE_ICON;
+      btn.setAttribute("aria-label", paused ? "Play animation" : "Pause animation");
+    }
+    function sync() {
+      if (inView && !userPaused) { var p = video.play(); if (p && p.catch) p.catch(function () { label(); }); }
+      else if (!video.paused) video.pause();
+      label();
+    }
+    function toggle() {
+      if (video.paused) { userPaused = false; inView = true; sync(); }
+      else { userPaused = true; video.pause(); label(); }
+    }
+    btn.addEventListener("click", toggle);
+    video.addEventListener("click", toggle);
+    video.addEventListener("play", label);
+    video.addEventListener("pause", label);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { inView = es[0].isIntersecting; sync(); }, { threshold: 0.3 }).observe(video);
+    } else { inView = true; sync(); }
+    label();
+    return { sync: sync, resume: function () { if (!reduceMotion) userPaused = false; sync(); } };
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("video[data-auto]"), function (v) {
+    makeLooping(v, v.closest(".plate"));
+  });
+
+  /* ---------- Research clips with case buttons ---------- */
+  var CLIPS = {
+    topo: {
+      bulk: ["bulk", "At <i>ω</i> = 2400 rad/s, inside a pass band, the wave spreads through the whole lattice."],
+      gap: ["bandgap", "At <i>ω</i> = 2560 rad/s, inside the band gap, the wave decays before it reaches the domain wall."],
+      "interface": ["interface", "At <i>ω</i> = 2606 rad/s the response localizes at the domain wall: an interface mode between regions of different topology."]
+    },
+    nl: {
+      "acoustic-linear": ["acoustic-linear", "Acoustic branch, linear chain (<i>ε</i>Γ = 0) excited at <i>κ</i> = 2.094: the packet travels at the speed set by the linear dispersion relation."],
+      "acoustic-nonlinear": ["acoustic-nonlinear", "Acoustic branch, nonlinear chain (<i>ε</i>Γ = 0.06) at the lower wavenumber <i>κ</i> = 1.047: the packet moves noticeably faster."],
+      "acoustic-solitary": ["acoustic-soliton", "Acoustic branch, nonlinear chain (<i>ε</i>Γ = 0.06) at <i>κ</i> = 2.094: a narrow, solitary-wave-like peak forms and travels with the packet."],
+      "optic-linear": ["optic1", "Optic branch, linear chain (<i>ε</i>Γ = 0) at <i>κ</i> = 2.094: the packet is slow, though faster than the acoustic packet at the same <i>κ</i>."],
+      "optic-nonlinear": ["optic2", "Optic branch, nonlinear chain (<i>ε</i>Γ = 0.06) at the lower wavenumber <i>κ</i> = 1.047: the packet travels much faster."],
+      "optic-solitary": ["optic3", "Optic branch, nonlinear chain (<i>ε</i>Γ = 0.06) at <i>κ</i> = 2.094: solitary-wave-like peaks appear in the response."]
+    }
+  };
+  Array.prototype.forEach.call(document.querySelectorAll("[data-clipfig]"), function (fig) {
+    var set = CLIPS[fig.getAttribute("data-clipfig")];
+    var video = fig.querySelector("video");
+    var cap = fig.querySelector(".fig-var");
+    var groups = Array.prototype.slice.call(fig.querySelectorAll("[data-group]"));
+    var ctl = makeLooping(video, fig.querySelector(".plate"));
+    function key() {
+      return groups.map(function (g) { return g.querySelector('[aria-pressed="true"]').getAttribute("data-value"); }).join("-");
+    }
+    function load(byUser) {
+      var c = set[key()];
+      video.poster = "media/" + c[0] + ".jpg";
+      video.src = "media/" + c[0] + ".mp4";
+      cap.innerHTML = c[1];
+      if (byUser) ctl.resume(); else ctl.sync();
+    }
+    groups.forEach(function (g) {
+      Array.prototype.forEach.call(g.querySelectorAll("button"), function (b) {
+        b.addEventListener("click", function () {
+          Array.prototype.forEach.call(g.querySelectorAll("button"), function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+          load(true);
+        });
+      });
+    });
+    load(false);
+  });
+
+  /* ---------- Live SSH lattice ---------- */
+  var canvas = document.getElementById("lattice");
+  var ctx = canvas.getContext("2d");
+  var statusEl = document.getElementById("lab-status");
+  var marker = document.getElementById("ruler-marker");
+  var markerValue = document.getElementById("ruler-value");
+  var modeButtons = Array.prototype.slice.call(document.querySelectorAll("[data-mode]"));
+  var pauseBtn = document.getElementById("lab-pause");
+
+  var KA = 1, KB = 3, DT = 0.05, SIM_RATE = 9, W_MAX = 3;
+  var C = { stiff: "#E9EEF6", soft: "#5E6F91", mass: "#4FD1C5", abs: "#E0703A", wall: "#D98E2B", base: "rgba(233,238,246,0.14)", label: "#AEBBD1" };
+  var DEMOS = {
+    pass: { w: 0.85, nc: 4, F0: 1.65, T: 125, at: "source",
+      text: "Tone burst at ω = 0.85, inside the lower pass band. The wave crosses the domain wall and leaves through the absorber." },
+    gap: { w: 1.75, nc: 10, F0: 2.4, T: 58, at: "source",
+      text: "Tone burst at ω = 1.75, inside the band gap. The lattice cannot carry this frequency, so the motion never leaves the source." },
+    "interface": { w: 2.0, nc: 12, F0: 0.21, T: 100, at: "wall",
+      text: "Drive at ω = 2.00, the frequency of the interface mode. Energy builds up at the domain wall and keeps ringing there after the drive stops." }
+  };
+  var ORDER = ["pass", "gap", "interface"];
+  var N = 0, W, L, SRC, k, damp, u, vel, F, shape;
+  var cssW = 0, cssH = 0;
+  var demo = null, t = 0, acc = 0, last = 0, rafId = null;
+  var auto = !reduceMotion, paused = reduceMotion, armed = !reduceMotion, visible = false;
+
+  function setup() {
+    var n = canvas.clientWidth < 640 ? 64 : 100;
+    if (n === N) return false;
+    N = n; W = N / 2; L = N === 64 ? 9 : 12; SRC = L + 2;
+    k = new Float64Array(N - 1);
+    for (var i = 0; i < N - 1; i++) k[i] = i < W ? (i % 2 === 0 ? KA : KB) : (i % 2 === 0 ? KB : KA);
+    damp = new Float64Array(N);
+    for (i = 0; i < N; i++) damp[i] = 0.0015;
+    for (var j = 0; j < L; j++) { var s = Math.pow((L - j) / L, 2) * 0.8; damp[j] += s; damp[N - 1 - j] += s; }
+    u = new Float64Array(N); vel = new Float64Array(N); F = new Float64Array(N);
+    shape = new Float64Array(N);
+    for (j = 0; ; j++) {
+      var a = Math.pow(-KA / KB, j), l = W - 1 - 2 * j, r = W + 1 + 2 * j;
+      if (l < 0 && r >= N) break;
+      if (l >= 0) shape[l] = -a;
+      if (r < N) shape[r] = a;
+    }
+    return true;
+  }
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cssW = canvas.clientWidth; cssH = canvas.clientHeight;
+    canvas.width = Math.round(cssW * dpr); canvas.height = Math.round(cssH * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (setup()) {
+      if (demo) start(demo.name, false);
+      else if (!armed) u.set(shape);
+    }
+    draw();
+  }
+  function setPressed(name) {
+    modeButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-mode") === name)); });
+  }
+  function setMarker(w) {
+    if (w == null) { marker.hidden = true; return; }
+    marker.hidden = false;
+    marker.style.left = (w / W_MAX * 100) + "%";
+    markerValue.textContent = "ω = " + w.toFixed(2);
+  }
+  function updatePause() {
+    pauseBtn.textContent = paused ? "Play" : "Pause";
+    pauseBtn.setAttribute("aria-pressed", String(paused));
+  }
+  function start(name, byUser) {
+    u.fill(0); vel.fill(0); t = 0; acc = 0;
+    var d = DEMOS[name];
+    demo = { name: name, w: d.w, nc: d.nc, F0: d.F0, T: d.T, at: d.at, Tb: d.nc * 2 * Math.PI / d.w };
+    setPressed(name); setMarker(d.w);
+    statusEl.textContent = d.text;
+    if (byUser) { auto = false; armed = true; paused = false; updatePause(); }
+    kick();
+  }
+  function step() {
+    var i, f;
+    F.fill(0);
+    for (i = 0; i < N - 1; i++) { f = k[i] * (u[i + 1] - u[i]); F[i] += f; F[i + 1] -= f; }
+    if (demo && t < demo.Tb) {
+      var s = Math.sin(Math.PI * t / demo.Tb);
+      var drive = demo.F0 * Math.sin(demo.w * t) * s * s;
+      if (demo.at === "source") F[SRC] += drive;
+      else for (i = 0; i < N; i++) F[i] += shape[i] * drive;
+    }
+    for (i = 0; i < N; i++) { vel[i] += DT * (F[i] - damp[i] * vel[i]); u[i] += DT * vel[i]; }
+    t += DT;
+  }
+  function xOf(i) { var m = 16; return m + (cssW - 2 * m) * i / (N - 1); }
+  function draw() {
+    if (!cssW) return;
+    var H = cssH, mid = H * 0.54, A = H * 0.34, wide = cssW >= 520, i;
+    ctx.clearRect(0, 0, cssW, H);
+    var xa = (xOf(L - 1) + xOf(L)) / 2, xb = (xOf(N - L - 1) + xOf(N - L)) / 2;
+    ctx.fillStyle = "rgba(224,112,58,0.10)";
+    ctx.fillRect(0, 0, xa, H); ctx.fillRect(xb, 0, cssW - xb, H);
+    ctx.strokeStyle = C.base; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, Math.round(mid) + 0.5); ctx.lineTo(cssW, Math.round(mid) + 0.5); ctx.stroke();
+    var xw = xOf(W);
+    ctx.save(); ctx.setLineDash([4, 5]); ctx.strokeStyle = C.wall; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.moveTo(xw, wide ? 22 : 6); ctx.lineTo(xw, H - 6); ctx.stroke(); ctx.restore();
+    if (wide) {
+      ctx.font = "600 12px 'Schibsted Grotesk', system-ui, sans-serif";
+      ctx.fillStyle = C.wall; ctx.textAlign = "center"; ctx.fillText("domain wall", xw, 15);
+      ctx.fillStyle = C.abs; ctx.textAlign = "left"; ctx.fillText("absorber", 8, 15);
+      ctx.textAlign = "right"; ctx.fillText("absorber", cssW - 8, 15);
+    }
+    function y(j) { return mid - A * 1.25 * Math.tanh(0.9 * u[j]); }
+    for (i = 0; i < N - 1; i++) {
+      var stiff = k[i] === KB;
+      ctx.strokeStyle = stiff ? C.stiff : C.soft; ctx.lineWidth = stiff ? 2.4 : 1.1;
+      ctx.beginPath(); ctx.moveTo(xOf(i), y(i)); ctx.lineTo(xOf(i + 1), y(i + 1)); ctx.stroke();
+    }
+    var r = cssW < 640 ? 2.6 : 3.3;
+    ctx.save(); ctx.shadowBlur = 8;
+    for (i = 0; i < N; i++) {
+      var col = (i < L || i >= N - L) ? C.abs : C.mass;
+      ctx.fillStyle = col; ctx.shadowColor = col;
+      ctx.beginPath(); ctx.arc(xOf(i), y(i), r, 0, 2 * Math.PI); ctx.fill();
+    }
+    ctx.restore();
+    if (demo) {
+      var xs = demo.at === "source" ? xOf(SRC) : xw, yb = H - 4;
+      ctx.fillStyle = C.wall;
+      ctx.beginPath(); ctx.moveTo(xs, yb - 9); ctx.lineTo(xs - 5, yb); ctx.lineTo(xs + 5, yb); ctx.closePath(); ctx.fill();
+      if (wide) {
+        ctx.font = "600 12px 'Schibsted Grotesk', system-ui, sans-serif";
+        ctx.textAlign = "left"; ctx.fillText(demo.at === "source" ? "source" : "drive", xs + 9, yb - 1);
+      }
+    }
+  }
+  function shouldRun() { return visible && !paused && armed && !document.hidden; }
+  function frame(now) {
+    rafId = null;
+    if (!shouldRun()) { draw(); return; }
+    var el = Math.min(0.05, (now - last) / 1000); last = now;
+    acc += el * SIM_RATE;
+    var n = 0;
+    while (acc >= DT && n < 40) { step(); acc -= DT; n++; }
+    if (auto && demo && t >= demo.T) start(ORDER[(ORDER.indexOf(demo.name) + 1) % ORDER.length], false);
+    draw();
+    rafId = requestAnimationFrame(frame);
+  }
+  function kick() {
+    if (rafId == null && shouldRun()) { last = performance.now(); rafId = requestAnimationFrame(frame); }
+    else if (!shouldRun()) draw();
+  }
+  modeButtons.forEach(function (b) {
+    b.addEventListener("click", function () { start(b.getAttribute("data-mode"), true); });
+  });
+  pauseBtn.addEventListener("click", function () {
+    paused = !paused;
+    if (!paused) {
+      armed = true;
+      if (!demo && statusEl.getAttribute("data-still") === "1") {
+        statusEl.removeAttribute("data-still");
+        statusEl.textContent = "The interface mode on its own: it oscillates in place at ω = 2.00 and does not spread.";
+      }
+    }
+    updatePause(); kick();
+  });
+  canvas.addEventListener("pointerdown", function (e) {
+    var rect = canvas.getBoundingClientRect();
+    var i = Math.round((e.clientX - rect.left - 16) / (cssW - 32) * (N - 1));
+    i = Math.max(1, Math.min(N - 2, i));
+    demo = null; auto = false; armed = true; paused = false; updatePause();
+    statusEl.removeAttribute("data-still");
+    // Pinch the chain at mass i with zero net displacement, so the free chain does not drift.
+    u[i] += 1.4; u[i - 1] -= 0.7; u[i + 1] -= 0.7;
+    setPressed(null); setMarker(null);
+    statusEl.textContent = "You plucked one mass. A pluck contains many frequencies at once. They all travel away except the part that matches the interface mode, so a pluck near the dashed line keeps ringing there.";
+    kick();
+  });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; kick(); }, { threshold: 0.1 }).observe(canvas);
+  } else { visible = true; }
+  document.addEventListener("visibilitychange", kick);
+  var rt;
+  window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(resize, 120); });
+  resize();
+  updatePause();
+  if (reduceMotion) {
+    u.set(shape); setMarker(2.0);
+    statusEl.setAttribute("data-still", "1");
+    statusEl.textContent = "Showing the interface mode as a still image because your device asks for reduced motion. Press Play or choose an excitation to run the simulation.";
+    draw();
+  } else {
+    start("pass", false);
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+})();
+</script>
+</body>
+</html>
